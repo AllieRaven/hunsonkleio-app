@@ -1,5 +1,18 @@
 import { Text, View, StyleSheet } from "react-native";
 
+const usuarios = [
+{
+  id:1,
+  nome:"Paula Precheca Acesa",
+  email: "princesinha.do.bts_07@hotmail.com"
+},
+{
+  id:2,
+  nome: "Pedro Mulambo",
+  email: "osuaburra.fotofake@yahoo.com"
+}
+];
+
 export default function Index() {
   return (
     <View
@@ -9,10 +22,11 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text> I mean, Henry, come on</Text>
-      <Text> Do you think I'd really choose it?</Text>
-      <Text> All this off and on</Text>
-      <Text> Henry, come on</Text>
+      {
+      usuarios.map(item =>(
+        <Text>{item.email}</Text>
+      ))
+      }
     </View>
   );
 }
