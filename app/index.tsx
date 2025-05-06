@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, FlatList } from "react-native";
 
 const usuarios = [
 {
@@ -14,20 +14,27 @@ const usuarios = [
 ];
 
 export default function Index() {
+  function Item(item){
+    return <text>jujubas</text>
+  }
+
+  function Cabecalho(){
+    return(
+      <Text style ={{fontSize: 50}}>Lista de Usuários</Text>
+    )
+  }
+  function Rodape(){
+    return(
+      <Text style ={{fontSize: 20}}>Total de Usuários: {usuarios.length}</Text>
+    )
+  }
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {
-      usuarios.map(item =>(
-        <Text>{item.email}</Text>
-      ))
-      }
-    </View>
+      <FlatList
+      data = {usuarios}
+      renderItem = {({item}) => <Item item ={item}/>}
+      ListHeaderComponent={()=> <Cabecalho />}
+      ListFooterComponent={() => <Rodape />}
+      />
   );
 }
 
